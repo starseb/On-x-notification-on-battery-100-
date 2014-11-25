@@ -1,8 +1,6 @@
 console.log("Script started");
-var firstRun= true;
 device.battery.on("updated", function (signal) {
     if (signal.percentage === 100 && firstRun) {
-        firstRun= false;
         console.log("Battery Full to " + signal.percentage);
         var not= device.notifications.createNotification("Battery Full to " + signal.percentage + "%");
         not.vibrate= false;
